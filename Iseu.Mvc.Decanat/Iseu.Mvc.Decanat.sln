@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "Iseu.Mvc.Decanat\UI.csproj", "{43B54BA3-4000-44B7-B762-9DDF678A4D87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iseu.Core", "Iseu.Core\Iseu.Core.csproj", "{44E71888-FE4B-4D51-B245-368037C58978}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iseu.Web", "Iseu.Web\Iseu.Web.csproj", "{D6BEED29-41A9-43BA-B190-61A67C9C64B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43B54BA3-4000-44B7-B762-9DDF678A4D87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43B54BA3-4000-44B7-B762-9DDF678A4D87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43B54BA3-4000-44B7-B762-9DDF678A4D87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43B54BA3-4000-44B7-B762-9DDF678A4D87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44E71888-FE4B-4D51-B245-368037C58978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E71888-FE4B-4D51-B245-368037C58978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E71888-FE4B-4D51-B245-368037C58978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E71888-FE4B-4D51-B245-368037C58978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6BEED29-41A9-43BA-B190-61A67C9C64B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6BEED29-41A9-43BA-B190-61A67C9C64B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6BEED29-41A9-43BA-B190-61A67C9C64B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6BEED29-41A9-43BA-B190-61A67C9C64B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
