@@ -63,7 +63,7 @@ namespace Iseu.UI.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return View("~/views/Account/Register");
         }
 
         //
