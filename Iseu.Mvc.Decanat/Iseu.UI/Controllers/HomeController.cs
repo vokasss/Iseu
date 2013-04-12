@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Iseu.Core;
-using Iseu.Core.Entities;
+using Iseu.Core.Repositories;
 
 namespace Iseu.UI.Controllers
 {
@@ -14,8 +13,8 @@ namespace Iseu.UI.Controllers
         {
             var user = this.User;
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View("~/views/home/index.cshtml");
+            StudentsRepository stud = new StudentsRepository(new Context());
+            return View("~/views/home/index.cshtml", stud.GetAll());
         }
 
         public ActionResult About()

@@ -10,12 +10,5 @@ namespace Iseu.UI.Controllers
 {
     public class BaseController : Controller
     {
-        public string Usersss
-        {
-            get
-            {
-                return this.User.Identity.Name ;
-            }
-        }
     }
 }

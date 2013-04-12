@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0087332344ae4c2cbffc63291c4ba05d" Name="Diagram1">
+        <EntityTypeShape EntityType="Repositories.Chair" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repositories.Faculty" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repositories.Group" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repositories.Note" Width="1.5" PointX="7.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repositories.Parent" Width="1.5" PointX="7.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repositories.Person" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repositories.Student" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repositories.Subject" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repositories.sysdiagram" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repositories.StudentsView" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="Repositories.FK_Chairs_Faculty" ManuallyRouted="false" />
+        <AssociationConnector Association="Repositories.FK_Groups_Chairs" ManuallyRouted="false" />
+        <AssociationConnector Association="Repositories.FK_Subjects_Chairs" ManuallyRouted="false" />
+        <AssociationConnector Association="Repositories.FK_Students_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="Repositories.FK_Notes_Subjects" ManuallyRouted="false" />
+        <AssociationConnector Association="Repositories.FK_Parents_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="Repositories.FK_Students_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

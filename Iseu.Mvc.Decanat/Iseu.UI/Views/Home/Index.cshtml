@@ -1,4 +1,9 @@
-﻿@{
+﻿@using Iseu.UI;
+@model IEnumerable<Student>
+@{
     Layout = "~/views/shared/_Layout.cshtml";
 }
-<div>Привет!!!</div>
+@foreach (var i in Model)
+{
+    <div>@i.GraduationYear</div> 
+}
