@@ -10,5 +10,9 @@ namespace Iseu.UI.Controllers
 {
     public class BaseController : Controller
     {
+        public iseuDatabase DBcontext;
+       public BaseController() {
+           DBcontext = new iseuDatabase();
+       }
     }
 }

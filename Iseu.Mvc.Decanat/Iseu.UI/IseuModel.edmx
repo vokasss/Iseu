@@ -4,51 +4,42 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="IseuContext.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="IseuContextStoreContainer">
-          <EntitySet Name="Chairs" EntityType="IseuContext.Store.Chairs" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Faculty" EntityType="IseuContext.Store.Faculty" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Groups" EntityType="IseuContext.Store.Groups" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Notes" EntityType="IseuContext.Store.Notes" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Parents" EntityType="IseuContext.Store.Parents" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Persons" EntityType="IseuContext.Store.Persons" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Students" EntityType="IseuContext.Store.Students" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Subjects" EntityType="IseuContext.Store.Subjects" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="sysdiagrams" EntityType="IseuContext.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="StudentsView" EntityType="IseuContext.Store.StudentsView" store:Type="Views" store:Schema="dbo" store:Name="StudentsView">
-            <DefiningQuery>SELECT 
-      [StudentsView].[Id] AS [Id], 
-      [StudentsView].[EntryYear] AS [EntryYear], 
-      [StudentsView].[GraduationYear] AS [GraduationYear], 
-      [StudentsView].[StudentStatus] AS [StudentStatus], 
-      [StudentsView].[GroupTitle] AS [GroupTitle]
-      FROM [dbo].[StudentsView] AS [StudentsView]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK_Chairs_Faculty" Association="IseuContext.Store.FK_Chairs_Faculty">
-            <End Role="Faculty" EntitySet="Faculty" />
+      <Schema Namespace="Хранилище iseuModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Хранилище iseuModelContainer">
+          <EntitySet Name="Chairs" EntityType="Хранилище iseuModel.Chairs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Faculties" EntityType="Хранилище iseuModel.Faculties" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Groups" EntityType="Хранилище iseuModel.Groups" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Notes" EntityType="Хранилище iseuModel.Notes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Parents" EntityType="Хранилище iseuModel.Parents" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Persons" EntityType="Хранилище iseuModel.Persons" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Students" EntityType="Хранилище iseuModel.Students" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StudentsViews" EntityType="Хранилище iseuModel.StudentsViews" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Subjects" EntityType="Хранилище iseuModel.Subjects" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Chairs_Faculty" Association="Хранилище iseuModel.FK_Chairs_Faculty">
+            <End Role="Faculties" EntitySet="Faculties" />
             <End Role="Chairs" EntitySet="Chairs" />
           </AssociationSet>
-          <AssociationSet Name="FK_Groups_Chairs" Association="IseuContext.Store.FK_Groups_Chairs">
+          <AssociationSet Name="FK_Groups_Chairs" Association="Хранилище iseuModel.FK_Groups_Chairs">
             <End Role="Chairs" EntitySet="Chairs" />
             <End Role="Groups" EntitySet="Groups" />
           </AssociationSet>
-          <AssociationSet Name="FK_Notes_Subjects" Association="IseuContext.Store.FK_Notes_Subjects">
+          <AssociationSet Name="FK_Notes_Subjects" Association="Хранилище iseuModel.FK_Notes_Subjects">
             <End Role="Subjects" EntitySet="Subjects" />
             <End Role="Notes" EntitySet="Notes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Parents_Persons" Association="IseuContext.Store.FK_Parents_Persons">
+          <AssociationSet Name="FK_Parents_Persons" Association="Хранилище iseuModel.FK_Parents_Persons">
             <End Role="Persons" EntitySet="Persons" />
             <End Role="Parents" EntitySet="Parents" />
           </AssociationSet>
-          <AssociationSet Name="FK_Students_Groups" Association="IseuContext.Store.FK_Students_Groups">
+          <AssociationSet Name="FK_Students_Groups" Association="Хранилище iseuModel.FK_Students_Groups">
             <End Role="Groups" EntitySet="Groups" />
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Students_Users" Association="IseuContext.Store.FK_Students_Users">
+          <AssociationSet Name="FK_Students_Users" Association="Хранилище iseuModel.FK_Students_Users">
             <End Role="Persons" EntitySet="Persons" />
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Subjects_Chairs" Association="IseuContext.Store.FK_Subjects_Chairs">
+          <AssociationSet Name="FK_Subjects_Chairs" Association="Хранилище iseuModel.FK_Subjects_Chairs">
             <End Role="Chairs" EntitySet="Chairs" />
             <End Role="Subjects" EntitySet="Subjects" />
           </AssociationSet>
@@ -61,7 +52,7 @@
           <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="FacultyId" Type="int" />
         </EntityType>
-        <EntityType Name="Faculty">
+        <EntityType Name="Faculties">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -83,7 +74,7 @@
           </Key>
           <Property Name="StudentId" Type="int" Nullable="false" />
           <Property Name="SubjectId" Type="int" Nullable="false" />
-          <Property Name="Note" Type="int" />
+          <Property Name="Note1" Type="int" />
         </EntityType>
         <EntityType Name="Parents">
           <Key>
@@ -98,7 +89,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="BirthDate" Type="datetime2" />
+          <Property Name="BirthDate" Type="datetime" />
           <Property Name="Gender" Type="int" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
           <Property Name="LastName" Type="nvarchar" MaxLength="100" />
@@ -121,28 +112,7 @@
           <Property Name="Type" Type="int" />
           <Property Name="GroupId" Type="int" />
         </EntityType>
-        <EntityType Name="Subjects">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ChairId" Type="int" />
-          <Property Name="Title" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'iseu.dbo.StudentsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="StudentsView">
+        <EntityType Name="StudentsViews">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -152,11 +122,19 @@
           <Property Name="StudentStatus" Type="int" />
           <Property Name="GroupTitle" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Subjects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ChairId" Type="int" />
+          <Property Name="Title" Type="nvarchar(max)" />
+        </EntityType>
         <Association Name="FK_Chairs_Faculty">
-          <End Role="Faculty" Type="IseuContext.Store.Faculty" Multiplicity="0..1" />
-          <End Role="Chairs" Type="IseuContext.Store.Chairs" Multiplicity="*" />
+          <End Role="Faculties" Type="Хранилище iseuModel.Faculties" Multiplicity="0..1" />
+          <End Role="Chairs" Type="Хранилище iseuModel.Chairs" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Faculty">
+            <Principal Role="Faculties">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Chairs">
@@ -165,8 +143,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Groups_Chairs">
-          <End Role="Chairs" Type="IseuContext.Store.Chairs" Multiplicity="0..1" />
-          <End Role="Groups" Type="IseuContext.Store.Groups" Multiplicity="*" />
+          <End Role="Chairs" Type="Хранилище iseuModel.Chairs" Multiplicity="0..1" />
+          <End Role="Groups" Type="Хранилище iseuModel.Groups" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Chairs">
               <PropertyRef Name="Id" />
@@ -177,8 +155,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Notes_Subjects">
-          <End Role="Subjects" Type="IseuContext.Store.Subjects" Multiplicity="1" />
-          <End Role="Notes" Type="IseuContext.Store.Notes" Multiplicity="*" />
+          <End Role="Subjects" Type="Хранилище iseuModel.Subjects" Multiplicity="1" />
+          <End Role="Notes" Type="Хранилище iseuModel.Notes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Subjects">
               <PropertyRef Name="Id" />
@@ -189,8 +167,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Parents_Persons">
-          <End Role="Persons" Type="IseuContext.Store.Persons" Multiplicity="1" />
-          <End Role="Parents" Type="IseuContext.Store.Parents" Multiplicity="0..1" />
+          <End Role="Persons" Type="Хранилище iseuModel.Persons" Multiplicity="1" />
+          <End Role="Parents" Type="Хранилище iseuModel.Parents" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Persons">
               <PropertyRef Name="Id" />
@@ -201,8 +179,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Students_Groups">
-          <End Role="Groups" Type="IseuContext.Store.Groups" Multiplicity="0..1" />
-          <End Role="Students" Type="IseuContext.Store.Students" Multiplicity="*" />
+          <End Role="Groups" Type="Хранилище iseuModel.Groups" Multiplicity="0..1" />
+          <End Role="Students" Type="Хранилище iseuModel.Students" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Groups">
               <PropertyRef Name="Id" />
@@ -213,8 +191,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Students_Users">
-          <End Role="Persons" Type="IseuContext.Store.Persons" Multiplicity="1" />
-          <End Role="Students" Type="IseuContext.Store.Students" Multiplicity="0..1" />
+          <End Role="Persons" Type="Хранилище iseuModel.Persons" Multiplicity="1" />
+          <End Role="Students" Type="Хранилище iseuModel.Students" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Persons">
               <PropertyRef Name="Id" />
@@ -225,8 +203,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Subjects_Chairs">
-          <End Role="Chairs" Type="IseuContext.Store.Chairs" Multiplicity="0..1" />
-          <End Role="Subjects" Type="IseuContext.Store.Subjects" Multiplicity="*" />
+          <End Role="Chairs" Type="Хранилище iseuModel.Chairs" Multiplicity="0..1" />
+          <End Role="Subjects" Type="Хранилище iseuModel.Subjects" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Chairs">
               <PropertyRef Name="Id" />
@@ -240,43 +218,42 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="IseuContext" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="Context" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Chairs" EntityType="IseuContext.Chair" />
-          <EntitySet Name="Faculties" EntityType="IseuContext.Faculty" />
-          <EntitySet Name="Groups" EntityType="IseuContext.Group" />
-          <EntitySet Name="Notes" EntityType="IseuContext.Note" />
-          <EntitySet Name="Parents" EntityType="IseuContext.Parent" />
-          <EntitySet Name="Persons" EntityType="IseuContext.Person" />
-          <EntitySet Name="Students" EntityType="IseuContext.Student" />
-          <EntitySet Name="Subjects" EntityType="IseuContext.Subject" />
-          <EntitySet Name="sysdiagrams" EntityType="IseuContext.sysdiagram" />
-          <EntitySet Name="StudentsViews" EntityType="IseuContext.StudentsView" />
-          <AssociationSet Name="FK_Chairs_Faculty" Association="IseuContext.FK_Chairs_Faculty">
-            <End Role="Faculty" EntitySet="Faculties" />
+      <Schema Namespace="iseuModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="iseuDatabase" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Chairs" EntityType="iseuModel.Chair" />
+          <EntitySet Name="Faculties" EntityType="iseuModel.Faculty" />
+          <EntitySet Name="Groups" EntityType="iseuModel.Group" />
+          <EntitySet Name="Notes" EntityType="iseuModel.Note" />
+          <EntitySet Name="Parents" EntityType="iseuModel.Parent" />
+          <EntitySet Name="Persons" EntityType="iseuModel.Person" />
+          <EntitySet Name="Students" EntityType="iseuModel.Student" />
+          <EntitySet Name="StudentsViews" EntityType="iseuModel.StudentsView" />
+          <EntitySet Name="Subjects" EntityType="iseuModel.Subject" />
+          <AssociationSet Name="FK_Chairs_Faculty" Association="iseuModel.FK_Chairs_Faculty">
+            <End Role="Faculties" EntitySet="Faculties" />
             <End Role="Chairs" EntitySet="Chairs" />
           </AssociationSet>
-          <AssociationSet Name="FK_Groups_Chairs" Association="IseuContext.FK_Groups_Chairs">
+          <AssociationSet Name="FK_Groups_Chairs" Association="iseuModel.FK_Groups_Chairs">
             <End Role="Chairs" EntitySet="Chairs" />
             <End Role="Groups" EntitySet="Groups" />
           </AssociationSet>
-          <AssociationSet Name="FK_Subjects_Chairs" Association="IseuContext.FK_Subjects_Chairs">
+          <AssociationSet Name="FK_Subjects_Chairs" Association="iseuModel.FK_Subjects_Chairs">
             <End Role="Chairs" EntitySet="Chairs" />
             <End Role="Subjects" EntitySet="Subjects" />
           </AssociationSet>
-          <AssociationSet Name="FK_Students_Groups" Association="IseuContext.FK_Students_Groups">
+          <AssociationSet Name="FK_Students_Groups" Association="iseuModel.FK_Students_Groups">
             <End Role="Groups" EntitySet="Groups" />
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Notes_Subjects" Association="IseuContext.FK_Notes_Subjects">
+          <AssociationSet Name="FK_Notes_Subjects" Association="iseuModel.FK_Notes_Subjects">
             <End Role="Subjects" EntitySet="Subjects" />
             <End Role="Notes" EntitySet="Notes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Parents_Persons" Association="IseuContext.FK_Parents_Persons">
+          <AssociationSet Name="FK_Parents_Persons" Association="iseuModel.FK_Parents_Persons">
             <End Role="Persons" EntitySet="Persons" />
             <End Role="Parents" EntitySet="Parents" />
           </AssociationSet>
-          <AssociationSet Name="FK_Students_Users" Association="IseuContext.FK_Students_Users">
+          <AssociationSet Name="FK_Students_Users" Association="iseuModel.FK_Students_Users">
             <End Role="Persons" EntitySet="Persons" />
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
@@ -288,9 +265,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="FacultyId" Type="Int32" />
-          <NavigationProperty Name="Faculty" Relationship="IseuContext.FK_Chairs_Faculty" FromRole="Chairs" ToRole="Faculty" />
-          <NavigationProperty Name="Groups" Relationship="IseuContext.FK_Groups_Chairs" FromRole="Chairs" ToRole="Groups" />
-          <NavigationProperty Name="Subjects" Relationship="IseuContext.FK_Subjects_Chairs" FromRole="Chairs" ToRole="Subjects" />
+          <NavigationProperty Name="Faculty" Relationship="iseuModel.FK_Chairs_Faculty" FromRole="Chairs" ToRole="Faculties" />
+          <NavigationProperty Name="Groups" Relationship="iseuModel.FK_Groups_Chairs" FromRole="Chairs" ToRole="Groups" />
+          <NavigationProperty Name="Subjects" Relationship="iseuModel.FK_Subjects_Chairs" FromRole="Chairs" ToRole="Subjects" />
         </EntityType>
         <EntityType Name="Faculty">
           <Key>
@@ -298,7 +275,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Chairs" Relationship="IseuContext.FK_Chairs_Faculty" FromRole="Faculty" ToRole="Chairs" />
+          <NavigationProperty Name="Chairs" Relationship="iseuModel.FK_Chairs_Faculty" FromRole="Faculties" ToRole="Chairs" />
         </EntityType>
         <EntityType Name="Group">
           <Key>
@@ -307,8 +284,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="ChairId" Type="Int32" />
-          <NavigationProperty Name="Chair" Relationship="IseuContext.FK_Groups_Chairs" FromRole="Groups" ToRole="Chairs" />
-          <NavigationProperty Name="Students" Relationship="IseuContext.FK_Students_Groups" FromRole="Groups" ToRole="Students" />
+          <NavigationProperty Name="Chair" Relationship="iseuModel.FK_Groups_Chairs" FromRole="Groups" ToRole="Chairs" />
+          <NavigationProperty Name="Students" Relationship="iseuModel.FK_Students_Groups" FromRole="Groups" ToRole="Students" />
         </EntityType>
         <EntityType Name="Note">
           <Key>
@@ -318,7 +295,7 @@
           <Property Name="StudentId" Type="Int32" Nullable="false" />
           <Property Name="SubjectId" Type="Int32" Nullable="false" />
           <Property Name="Note1" Type="Int32" />
-          <NavigationProperty Name="Subject" Relationship="IseuContext.FK_Notes_Subjects" FromRole="Notes" ToRole="Subjects" />
+          <NavigationProperty Name="Subject" Relationship="iseuModel.FK_Notes_Subjects" FromRole="Notes" ToRole="Subjects" />
         </EntityType>
         <EntityType Name="Parent">
           <Key>
@@ -327,14 +304,14 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Job" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="StudentId" Type="Int32" />
-          <NavigationProperty Name="Person" Relationship="IseuContext.FK_Parents_Persons" FromRole="Parents" ToRole="Persons" />
+          <NavigationProperty Name="Person" Relationship="iseuModel.FK_Parents_Persons" FromRole="Parents" ToRole="Persons" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="BirthDate" Type="DateTime" Precision="7" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
           <Property Name="Gender" Type="Int32" />
           <Property Name="FirstName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="LastName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
@@ -345,8 +322,8 @@
           <Property Name="Address" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Role" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Parent" Relationship="IseuContext.FK_Parents_Persons" FromRole="Persons" ToRole="Parents" />
-          <NavigationProperty Name="Student" Relationship="IseuContext.FK_Students_Users" FromRole="Persons" ToRole="Students" />
+          <NavigationProperty Name="Parent" Relationship="iseuModel.FK_Parents_Persons" FromRole="Persons" ToRole="Parents" />
+          <NavigationProperty Name="Student" Relationship="iseuModel.FK_Students_Users" FromRole="Persons" ToRole="Students" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -358,28 +335,8 @@
           <Property Name="Status" Type="Int32" />
           <Property Name="Type" Type="Int32" />
           <Property Name="GroupId" Type="Int32" />
-          <NavigationProperty Name="Group" Relationship="IseuContext.FK_Students_Groups" FromRole="Students" ToRole="Groups" />
-          <NavigationProperty Name="Person" Relationship="IseuContext.FK_Students_Users" FromRole="Students" ToRole="Persons" />
-        </EntityType>
-        <EntityType Name="Subject">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="ChairId" Type="Int32" />
-          <Property Name="Title" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Chair" Relationship="IseuContext.FK_Subjects_Chairs" FromRole="Subjects" ToRole="Chairs" />
-          <NavigationProperty Name="Notes" Relationship="IseuContext.FK_Notes_Subjects" FromRole="Subjects" ToRole="Notes" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Group" Relationship="iseuModel.FK_Students_Groups" FromRole="Students" ToRole="Groups" />
+          <NavigationProperty Name="Person" Relationship="iseuModel.FK_Students_Users" FromRole="Students" ToRole="Persons" />
         </EntityType>
         <EntityType Name="StudentsView">
           <Key>
@@ -391,11 +348,21 @@
           <Property Name="StudentStatus" Type="Int32" />
           <Property Name="GroupTitle" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
         </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ChairId" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Chair" Relationship="iseuModel.FK_Subjects_Chairs" FromRole="Subjects" ToRole="Chairs" />
+          <NavigationProperty Name="Notes" Relationship="iseuModel.FK_Notes_Subjects" FromRole="Subjects" ToRole="Notes" />
+        </EntityType>
         <Association Name="FK_Chairs_Faculty">
-          <End Role="Faculty" Type="IseuContext.Faculty" Multiplicity="0..1" />
-          <End Role="Chairs" Type="IseuContext.Chair" Multiplicity="*" />
+          <End Role="Faculties" Type="iseuModel.Faculty" Multiplicity="0..1" />
+          <End Role="Chairs" Type="iseuModel.Chair" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Faculty">
+            <Principal Role="Faculties">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Chairs">
@@ -404,8 +371,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Groups_Chairs">
-          <End Role="Chairs" Type="IseuContext.Chair" Multiplicity="0..1" />
-          <End Role="Groups" Type="IseuContext.Group" Multiplicity="*" />
+          <End Role="Chairs" Type="iseuModel.Chair" Multiplicity="0..1" />
+          <End Role="Groups" Type="iseuModel.Group" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Chairs">
               <PropertyRef Name="Id" />
@@ -416,8 +383,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Subjects_Chairs">
-          <End Role="Chairs" Type="IseuContext.Chair" Multiplicity="0..1" />
-          <End Role="Subjects" Type="IseuContext.Subject" Multiplicity="*" />
+          <End Role="Chairs" Type="iseuModel.Chair" Multiplicity="0..1" />
+          <End Role="Subjects" Type="iseuModel.Subject" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Chairs">
               <PropertyRef Name="Id" />
@@ -428,8 +395,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Students_Groups">
-          <End Role="Groups" Type="IseuContext.Group" Multiplicity="0..1" />
-          <End Role="Students" Type="IseuContext.Student" Multiplicity="*" />
+          <End Role="Groups" Type="iseuModel.Group" Multiplicity="0..1" />
+          <End Role="Students" Type="iseuModel.Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Groups">
               <PropertyRef Name="Id" />
@@ -440,8 +407,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Notes_Subjects">
-          <End Role="Subjects" Type="IseuContext.Subject" Multiplicity="1" />
-          <End Role="Notes" Type="IseuContext.Note" Multiplicity="*" />
+          <End Role="Subjects" Type="iseuModel.Subject" Multiplicity="1" />
+          <End Role="Notes" Type="iseuModel.Note" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Subjects">
               <PropertyRef Name="Id" />
@@ -452,8 +419,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Parents_Persons">
-          <End Role="Persons" Type="IseuContext.Person" Multiplicity="1" />
-          <End Role="Parents" Type="IseuContext.Parent" Multiplicity="0..1" />
+          <End Role="Persons" Type="iseuModel.Person" Multiplicity="1" />
+          <End Role="Parents" Type="iseuModel.Parent" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Persons">
               <PropertyRef Name="Id" />
@@ -464,8 +431,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Students_Users">
-          <End Role="Persons" Type="IseuContext.Person" Multiplicity="1" />
-          <End Role="Students" Type="IseuContext.Student" Multiplicity="0..1" />
+          <End Role="Persons" Type="iseuModel.Person" Multiplicity="1" />
+          <End Role="Students" Type="iseuModel.Student" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Persons">
               <PropertyRef Name="Id" />
@@ -480,9 +447,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="IseuContextStoreContainer" CdmEntityContainer="Context">
+        <EntityContainerMapping StorageEntityContainer="Хранилище iseuModelContainer" CdmEntityContainer="iseuDatabase">
           <EntitySetMapping Name="Chairs">
-            <EntityTypeMapping TypeName="IseuContext.Chair">
+            <EntityTypeMapping TypeName="iseuModel.Chair">
               <MappingFragment StoreEntitySet="Chairs">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -491,15 +458,15 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Faculties">
-            <EntityTypeMapping TypeName="IseuContext.Faculty">
-              <MappingFragment StoreEntitySet="Faculty">
+            <EntityTypeMapping TypeName="iseuModel.Faculty">
+              <MappingFragment StoreEntitySet="Faculties">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Groups">
-            <EntityTypeMapping TypeName="IseuContext.Group">
+            <EntityTypeMapping TypeName="iseuModel.Group">
               <MappingFragment StoreEntitySet="Groups">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -508,16 +475,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Notes">
-            <EntityTypeMapping TypeName="IseuContext.Note">
+            <EntityTypeMapping TypeName="iseuModel.Note">
               <MappingFragment StoreEntitySet="Notes">
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />
                 <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
-                <ScalarProperty Name="Note1" ColumnName="Note" />
+                <ScalarProperty Name="Note1" ColumnName="Note1" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Parents">
-            <EntityTypeMapping TypeName="IseuContext.Parent">
+            <EntityTypeMapping TypeName="iseuModel.Parent">
               <MappingFragment StoreEntitySet="Parents">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Job" ColumnName="Job" />
@@ -526,7 +493,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Persons">
-            <EntityTypeMapping TypeName="IseuContext.Person">
+            <EntityTypeMapping TypeName="iseuModel.Person">
               <MappingFragment StoreEntitySet="Persons">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
@@ -544,7 +511,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="IseuContext.Student">
+            <EntityTypeMapping TypeName="iseuModel.Student">
               <MappingFragment StoreEntitySet="Students">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="EntryYear" ColumnName="EntryYear" />
@@ -555,34 +522,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Subjects">
-            <EntityTypeMapping TypeName="IseuContext.Subject">
-              <MappingFragment StoreEntitySet="Subjects">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ChairId" ColumnName="ChairId" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="IseuContext.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="StudentsViews">
-            <EntityTypeMapping TypeName="IseuContext.StudentsView">
-              <MappingFragment StoreEntitySet="StudentsView">
+            <EntityTypeMapping TypeName="iseuModel.StudentsView">
+              <MappingFragment StoreEntitySet="StudentsViews">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="EntryYear" ColumnName="EntryYear" />
                 <ScalarProperty Name="GraduationYear" ColumnName="GraduationYear" />
                 <ScalarProperty Name="StudentStatus" ColumnName="StudentStatus" />
                 <ScalarProperty Name="GroupTitle" ColumnName="GroupTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="iseuModel.Subject">
+              <MappingFragment StoreEntitySet="Subjects">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ChairId" ColumnName="ChairId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -602,7 +558,6 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
